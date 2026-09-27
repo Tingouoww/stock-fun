@@ -1,0 +1,20 @@
+{
+  "name": "tw-finance",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "services/quote-gateway"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w apps/web",
+    "dev:quotes": "npm run dev -w services/quote-gateway",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "db:up": "docker compose up -d db",
+    "db:reset": "docker compose down -v && docker compose up -d db"
+  },
+  "engines": {
+    "node": ">=20.9"
+  }
+}

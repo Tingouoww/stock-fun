@@ -1,0 +1,4 @@
+FinMind==2.0.10
+APScheduler==3.11.3
+psycopg[binary]==3.3.6
+python-dotenv==1.2.3

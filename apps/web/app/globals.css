@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* 顏色 token：台股慣例紅漲綠跌；設定頁可切換成國際慣例（交換 --up / --down） */
+:root {
+  --bg: #f7f7f8;
+  --panel: #ffffff;
+  --text: #16181d;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #2563eb;
+  --up: #d92d20;
+  --down: #079455;
+  --flat: #6b7280;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --accent: #58a6ff;
+    --up: #f85149;
+    --down: #3fb950;
+    --flat: #8b949e;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-up: var(--up);
+  --color-down: var(--down);
+  --color-flat: var(--flat);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+/* 數字等寬，跳價時版面不晃動 */
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 跳價閃色提示 */
+@keyframes flash-up {
+  from { background: color-mix(in srgb, var(--up) 25%, transparent); }
+  to { background: transparent; }
+}
+@keyframes flash-down {
+  from { background: color-mix(in srgb, var(--down) 25%, transparent); }
+  to { background: transparent; }
+}
+.flash-up { animation: flash-up 0.8s ease-out; }
+.flash-down { animation: flash-down 0.8s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .flash-up, .flash-down { animation: none; }
+}

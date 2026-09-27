@@ -1,0 +1,32 @@
+# 機密：絕對不要提交
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# 資料與備份
+*.dump
+*.sql.gz
+data/
+
+# 系統與編輯器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.ruff_cache/
